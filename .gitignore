@@ -150,3 +150,8 @@ autolive.db-shm
 # Large local applications and backups
 /vnyan/
 /backups/
+
+# Temporary files and scratch scripts
+/scratch/
+*.tmp
+*.tar.gz
