@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' ws: wss: https://cdn.jsdelivr.net; img-src 'self' data:;">
+    <title>AI Live Studio - Web Control Center</title>
+    <link rel="stylesheet" href="/static/style.css?v=3.6">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="logo">
+                <span class="icon">🎭</span>
+                <h1>AI Live Studio <span class="badge">Web Console</span></h1>
+            </div>
+            
+            <div class="navigation-tabs">
+                <button class="nav-tab active" data-target="live-section">🎤 Live Control</button>
+                <button class="nav-tab" data-target="analytics-section">📊 Báo Cáo & ROI</button>
+            </div>
+            
+            <div class="header-right">
+                <div class="statuses">
+                    <div class="status-indicator" id="obs-status">
+                        <span class="dot red"></span> OBS: Offline
+                    </div>
+                    <div class="status-indicator" id="renderer-status">
+                        <span class="dot red"></span> MC ảo: Offline
+                    </div>
+                    <div class="status-indicator" id="tts-status">
+                        <span class="dot green"></span> TTS: Sẵn sàng
+                    </div>
+                </div>
+                <button id="btn-emergency-mute" class="emergency-btn-small">🛑 MUTE MC</button>
+            </div>
+        </header>
+
+        <!-- RENDERER WARNING BANNER -->
+        <div id="renderer-warning-banner" style="background-color: rgba(243, 139, 168, 0.15); border: 1px solid #f38ba8; color: #f38ba8; padding: 10px 15px; border-radius: 8px; margin: 10px 20px; display: none; align-items: center; gap: 10px; font-weight: bold;">
+            <span>⚠️</span> <span id="renderer-warning-text">Chưa phát hiện phần mềm Renderer 3D đang chạy. Vui lòng bật VNyan hoặc kiểm tra kết nối OSC!</span>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <main class="main-content">
+            <!-- SECTION 1: LIVE STREAM CONTROL -->
+            <div id="live-section" class="tab-content active">
+                <div class="dashboard-grid-2col">
+                    
+                    <!-- LEFT COLUMN: Simulator, Override & Connector status -->
+                    <div class="panel-left">
+                        <!-- Connectors Status (Read-Only) -->
+                        <div class="card">
+                            <h2>🔌 Trạng thái kết nối (Connectors)</h2>
+                            <div class="connector-status-list">
+                                <div class="conn-status-item" id="status-tiktok">
+                                    <span>TikTok Live:</span> <span class="status-badge offline" id="badge-tiktok">OFFLINE</span>
+                                </div>
+                                <div class="conn-status-item" id="status-facebook">
+                                    <span>Facebook Page:</span> <span class="status-badge offline" id="badge-facebook">OFFLINE</span>
+                                </div>
+                                <div class="conn-status-item" id="status-youtube">
+                                    <span>YouTube Live:</span> <span class="status-badge offline" id="badge-youtube">OFFLINE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Manual Override Voice -->
+                        <div class="card" style="margin-top: 20px;">
+                            <h2>✍️ Can thiệp thủ công (Override Voice)</h2>
+                            <p class="subtitle-hint">Gõ nội dung để phát giọng nói MC ảo ngay lập tức:</p>
+                            <div class="override-controls">
+                                <textarea id="override-text" placeholder="Nhập câu thoại hoặc thông báo khuyến mãi khẩn cấp..."></textarea>
+                                <button id="btn-send-override" class="control-btn success">📢 Phát giọng nói</button>
+                            </div>
+                        </div>
+
+                        <!-- Comment Simulator (Moved from Desktop) -->
+                        <div class="card" style="margin-top: 20px;">
+                            <h2>💬 Giả lập Comment (Testing Tool)</h2>
+                            <form id="comment-sim-form">
+                                <div class="form-group">
+                                    <label>Tên khách hàng:</label>
+                                    <input type="text" id="sim-username" value="Khách Giả Lập" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nội dung bình luận:</label>
+                                    <select id="sim-comment">
+                                        <option value="áo thun SP001 bao nhiêu shop ơi?">áo thun SP001 bao nhiêu shop ơi? (Hỏi giá)</option>
+                                        <option value="chốt SP001 nhé shop">chốt SP001 nhé shop (Tự động chốt đơn)</option>
+                                        <option value="quần jean SP002 còn không?">quần jean SP002 còn không? (Kiểm tra kho)</option>
+                                        <option value="shop giao hàng đi Đà Nẵng mất bao lâu?">shop giao hàng đi Đà Nẵng mất bao lâu? (Hỏi ship)</option>
+                                        <option value="chất vải áo SP001 có mát không?">chất vải áo SP001 có mát không? (Hỏi chất liệu)</option>
+                                        <option value="hello shop nhé, chúc shop đắt khách!">hello shop nhé, chúc shop đắt khách! (Chào hỏi)</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="control-btn primary">Gửi vào hàng đợi</button>
+                            </form>
+                        </div>
+
+                        <!-- Live Event Simulator (R&D Testing Tool) -->
+                        <div class="card" style="margin-top: 20px;">
+                            <h2>🎁 Giả lập Sự kiện TikTok Live</h2>
+                            <p class="subtitle-hint">Kiểm thử phản ứng của AI MC với sự kiện thời gian thực:</p>
+                            <div class="simulator-actions">
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label>Tên khách tương tác:</label>
+                                    <input type="text" id="sim-event-user" placeholder="Tên khách" value="Khách Live" style="padding: 8px;">
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+                                    <button type="button" onclick="simulateLiveEvent('follow')" class="control-btn" style="background-color: var(--secondary-color); color: var(--text-color); font-size: 12px; padding: 8px;">👤 Follow</button>
+                                    <button type="button" onclick="simulateLiveEvent('share')" class="control-btn" style="background-color: var(--secondary-color); color: var(--text-color); font-size: 12px; padding: 8px;">🔗 Share</button>
+                                </div>
+                                <div style="border-top: 1px solid var(--border-color); padding-top: 10px; margin-bottom: 10px;">
+                                    <label style="font-size: 11px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">Giả lập Tặng quà (Gift):</label>
+                                    <div style="display: flex; gap: 6px; align-items: center;">
+                                        <select id="sim-gift-name" style="flex: 2; padding: 8px; background-color: var(--inner-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-size: 12px; height: 34px;">
+                                            <option value="Hoa hồng">🌹 Hoa hồng</option>
+                                            <option value="Nước hoa">💖 Nước hoa</option>
+                                            <option value="Kính râm">🕶️ Kính râm</option>
+                                            <option value="TikTok Logo">⚡ TikTok Logo</option>
+                                        </select>
+                                        <input type="number" id="sim-gift-count" value="1" min="1" style="width: 50px; padding: 8px; background-color: var(--inner-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-align: center; font-size: 12px; height: 34px;">
+                                        <button type="button" onclick="simulateLiveEvent('gift')" class="control-btn success" style="flex: 1.2; font-size: 12px; padding: 8px; height: 34px; line-height: 18px;">🎁 Tặng</button>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px solid var(--border-color); padding-top: 10px;">
+                                    <label style="font-size: 11px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">Xem sản phẩm (Cart Click):</label>
+                                    <div style="display: flex; gap: 6px;">
+                                        <select id="sim-cart-product" style="flex: 3; padding: 8px; background-color: var(--inner-bg); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-size: 12px; height: 34px;">
+                                            <!-- Rendered dynamically -->
+                                        </select>
+                                        <button type="button" onclick="simulateLiveEvent('cart_click')" class="control-btn primary" style="flex: 1.5; font-size: 12px; padding: 8px; height: 34px; line-height: 18px;">🛒 Click</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MC Gesture Manual Controller -->
+                        <div class="card" style="margin-top: 20px;">
+                            <h2>🎭 Điều Khiển Động Tác MC (VMC Manual)</h2>
+                            <p class="subtitle-hint">Kích hoạt nhanh cử chỉ & biểu cảm của MC trên màn hình:</p>
+                            
+                            <div style="margin-bottom: 12px;">
+                                <label style="font-size: 11px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">Biểu cảm khuôn mặt (Expressions):</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;">
+                                    <button type="button" onclick="triggerMCGesture('expression', 'Joy')" class="control-btn" style="background-color: #313244; font-size: 11px; padding: 6px;">😊 Vui vẻ</button>
+                                    <button type="button" onclick="triggerMCGesture('expression', 'Sorrow')" class="control-btn" style="background-color: #313244; font-size: 11px; padding: 6px;">😢 Buồn bã</button>
+                                    <button type="button" onclick="triggerMCGesture('expression', 'Surprise')" class="control-btn" style="background-color: #313244; font-size: 11px; padding: 6px;">😮 Ngạc nhiên</button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label style="font-size: 11px; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 6px;">Động tác cơ thể (Body Gestures):</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'Greeting')" class="control-btn primary" style="font-size: 11px; padding: 6px;">👋 Cúi chào</button>
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'Clap')" class="control-btn primary" style="font-size: 11px; padding: 6px;">👏 Vỗ tay</button>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'Heart')" class="control-btn success" style="font-size: 11px; padding: 6px;">💖 Bắn tim</button>
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'PointUp')" class="control-btn success" style="font-size: 11px; padding: 6px;">☝️ Chỉ lên trên</button>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'Dance')" class="control-btn danger" style="font-size: 11px; padding: 6px;">💃 Nhảy múa</button>
+                                    <button type="button" onclick="triggerMCGesture('gesture', 'Apology')" class="control-btn warning" style="font-size: 11px; padding: 6px;">🙇 Xin lỗi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: Queue stats & Pending Approvals L1 -->
+
+                    <div class="panel-right">
+                        <!-- Queue Counters -->
+                        <div class="card">
+                            <h2>🔥 Thống kê Hàng Đợi Ưu Tiên</h2>
+                            <div class="queues-container-new">
+                                <div class="queue-badge high">
+                                    <div class="num" id="q-high-num">0</div>
+                                    <div class="label">Cao (Giá/Chốt)</div>
+                                </div>
+                                <div class="queue-badge medium">
+                                    <div class="num" id="q-med-num">0</div>
+                                    <div class="label">Trung (Ship/Size)</div>
+                                </div>
+                                <div class="queue-badge low">
+                                    <div class="num" id="q-low-num">0</div>
+                                    <div class="label">Thấp (Chào hỏi)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TikTok Shop Live Cart & Activity row -->
+                        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; margin-top: 20px;">
+                            <!-- TikTok Shop Live Cart -->
+                            <div class="card" style="display: flex; flex-direction: column; height: 360px;">
+                                <h2>🛒 Giỏ hàng TikTok Shop</h2>
+                                <p class="subtitle-hint">Danh sách sản phẩm được ghim bán hàng:</p>
+                                <div id="web-cart-container" class="products-list-new" style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+                                    <p class="empty-hint">Đang tải giỏ hàng...</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Live Activity Stream -->
+                            <div class="card" style="display: flex; flex-direction: column; height: 360px;">
+                                <h2>🔔 Hoạt động Livestream (Activity Feed)</h2>
+                                <p class="subtitle-hint">Các tương tác tặng quà, follow, share thời gian thực:</p>
+                                <div id="live-activity-feed" style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 12px; background-color: var(--inner-bg); border-radius: 8px; padding: 10px; border: 1px solid var(--border-color);">
+                                    <p class="empty-hint" style="margin: auto; font-style: italic;">Chưa có hoạt động nào...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Approvals L1 -->
+                        <div class="card" style="margin-top: 20px; flex-grow: 1; display: flex; flex-direction: column; min-height: 380px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #313244; padding-bottom: 10px; margin-bottom: 15px;">
+                                <h2 style="margin: 0;">📥 Câu trả lời chờ duyệt (Level 1 Autopilot)</h2>
+                                <div class="form-group-inline">
+                                    <select id="autopilot-level" style="padding: 6px 12px; background-color: #313244; color: #cdd6f4; border: 1px solid #45475a; border-radius: 6px; font-weight: bold;">
+                                        <option value="1">Level 1: AI gợi ý (Cần Duyệt)</option>
+                                        <option value="2">Level 2: Bán tự động</option>
+                                        <option value="3" selected>Level 3: Tự động hoàn toàn</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="pending-approvals-container" class="pending-container-new">
+                                <p class="empty-hint">Không có bình luận nào đang chờ duyệt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <!-- SECTION 2: ANALYTICS & REPORTS -->
+            <div id="analytics-section" class="tab-content">
+                <!-- KPI Dashboard Row -->
+                <div class="kpi-container-new">
+                    <div class="kpi-card-new">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-info">
+                            <div class="kpi-label">Tổng doanh thu</div>
+                            <div class="kpi-val" id="kpi-revenue">0đ</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card-new">
+                        <div class="kpi-icon">🛒</div>
+                        <div class="kpi-info">
+                            <div class="kpi-label">Đơn hàng thành công</div>
+                            <div class="kpi-val" id="kpi-orders">0 đơn</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card-new">
+                        <div class="kpi-icon">📊</div>
+                        <div class="kpi-info">
+                            <div class="kpi-label">Tỉ lệ chuyển đổi (CR)</div>
+                            <div class="kpi-val" id="kpi-cr">0%</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card-new">
+                        <div class="kpi-icon">🔥</div>
+                        <div class="kpi-info">
+                            <div class="kpi-label">Sản phẩm bán chạy nhất</div>
+                            <div class="kpi-val" id="kpi-bestseller">N/A</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Layout -->
+                <div class="analytics-grid" style="margin-top: 20px;">
+                    <div class="card">
+                        <h2>📊 Hiệu suất sản phẩm (Doanh thu & CR%)</h2>
+                        <div class="chart-wrapper">
+                            <canvas id="productRoiChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>⏰ Doanh thu theo khung giờ Live</h2>
+                        <div class="chart-wrapper">
+                            <canvas id="hourlyRevenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products inventory status list -->
+                <div class="card" style="margin-top: 20px;">
+                    <h2>📦 Quản lý số lượng tồn kho sản phẩm</h2>
+                    <div class="products-list-new" id="products-container">
+                        <p class="empty-hint">Đang tải danh sách sản phẩm...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js?v=3.6"></script>
+</body>
+</html>

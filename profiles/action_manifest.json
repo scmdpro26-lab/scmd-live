@@ -1,0 +1,155 @@
+{
+    "AI_LIVE_RESET": {
+        "animation": "touchgrass",
+        "duration": 1.0,
+        "cooldown": 1.0,
+        "priority": 0,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Khởi động lại toàn bộ động tác MC"
+    },
+    "AI_LIVE_STOP": {
+        "animation": "touchgrass",
+        "duration": 1.0,
+        "cooldown": 1.0,
+        "priority": 0,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Dừng khẩn cấp toàn bộ động tác MC"
+    },
+    "AI_LIVE_CHECKOUT_SUCCESS": {
+        "animation": "basicmotions@clap01",
+        "duration": 4.0,
+        "cooldown": 4.0,
+        "priority": 1,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Cổ vũ khách hàng thanh toán thành công"
+    },
+    "AI_LIVE_VOUCHER_DROP": {
+        "animation": "basicmotions@clap01",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 1,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Chúc mừng khách nhận voucher"
+    },
+    "AI_LIVE_CART_PIN": {
+        "animation": "basicmotions@clap01",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 1,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Chỉ tay lên ghim sản phẩm giỏ hàng"
+    },
+    "AI_LIVE_VOUCHER_SHOW": {
+        "animation": "basicmotions@clap01",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 1,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Giới thiệu voucher giảm giá"
+    },
+    "AI_LIVE_POINT_DOWN": {
+        "animation": "touchgrass",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 2,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Chỉ tay xuống góc dưới màn hình"
+    },
+    "AI_LIVE_PRESENT_LEFT": {
+        "animation": "touchgrass",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 2,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Vẫy tay giới thiệu sản phẩm bên trái"
+    },
+    "AI_LIVE_PRESENT_RIGHT": {
+        "animation": "touchgrass",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 2,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Vẫy tay giới thiệu sản phẩm bên phải"
+    },
+    "AI_LIVE_GREETING": {
+        "animation": "touchgrass",
+        "duration": 2.5,
+        "cooldown": 2.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Cúi đầu chào người xem livestream"
+    },
+    "AI_LIVE_CLAP": {
+        "animation": "basicmotions@clap01",
+        "duration": 2.5,
+        "cooldown": 2.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Vỗ tay tán thưởng người xem"
+    },
+    "AI_LIVE_HEART": {
+        "animation": "basicmotions@clap01",
+        "duration": 2.5,
+        "cooldown": 2.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Tạo hình tim thể hiện tình cảm"
+    },
+    "AI_LIVE_POINT_UP": {
+        "animation": "basicmotions@clap01",
+        "duration": 2.5,
+        "cooldown": 2.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Chỉ tay lên phía trên giới thiệu follow"
+    },
+    "AI_LIVE_DANCE": {
+        "animation": "gangnam",
+        "duration": 5.0,
+        "cooldown": 5.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Nhảy điệu Gangnam vui tươi"
+    },
+    "AI_LIVE_APOLOGY": {
+        "animation": "touchgrass",
+        "duration": 2.5,
+        "cooldown": 2.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Cúi đầu xin lỗi chân thành"
+    },
+    "AI_LIVE_MINIGAME_START": {
+        "animation": "gangnam",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Kích hoạt trò chơi tương tác"
+    },
+    "AI_LIVE_CELEBRATE": {
+        "animation": "gangnam",
+        "duration": 3.0,
+        "cooldown": 3.0,
+        "priority": 3,
+        "interruptible": true,
+        "queueable": false,
+        "semantic": "Nhảy múa ăn mừng nồng nhiệt"
+    }
+}

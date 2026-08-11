@@ -1,0 +1,34 @@
+{
+  "comment": "Cấu hình ánh xạ sự kiện phòng livestream sang hành động MC ảo. Chỉnh sửa file này để thay đổi hành vi mà không cần sửa code.",
+  "event_actions": {
+    "follow": {
+      "action": "greeting",
+      "expression": "happy"
+    },
+    "share": {
+      "action": "heart",
+      "expression": "happy"
+    },
+    "gift": {
+      "high_value": {
+        "action": "dance",
+        "expression": "happy",
+        "threshold": 5
+      },
+      "normal": {
+        "action": "clap",
+        "expression": "happy"
+      }
+    },
+    "cart_click": {
+      "action": "point_up",
+      "expression": "surprised"
+    }
+  },
+  "sentiment_actions": {
+    "khó chịu": {
+      "action": "apology",
+      "duration": 3.0
+    }
+  }
+}

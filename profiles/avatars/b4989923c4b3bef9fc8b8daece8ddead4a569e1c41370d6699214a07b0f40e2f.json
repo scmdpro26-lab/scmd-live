@@ -1,0 +1,49 @@
+{
+    "schema_version": 1,
+    "avatar_hash": "b4989923c4b3bef9fc8b8daece8ddead4a569e1c41370d6699214a07b0f40e2f",
+    "source_path": "Vrm\\dep.vrm",
+    "format": "VRM",
+    "version": "",
+    "height": 1.63,
+    "bones": 1329,
+    "materials": 24,
+    "textures": 36,
+    "detected_at": "2026-08-09T10:17:17.032222",
+    "expressions": {
+        "available": [
+            "Neutral",
+            "A",
+            "I",
+            "U",
+            "E",
+            "O",
+            "Blink",
+            "Blink_L",
+            "Blink_R",
+            "Angry",
+            "Fun",
+            "Joy",
+            "Sorrow",
+            "Surprised",
+            "Extra"
+        ],
+        "viseme_a": "A",
+        "viseme_e": "E",
+        "viseme_i": "I",
+        "viseme_o": "O",
+        "viseme_u": "U",
+        "happy": "Fun",
+        "sad": "Sorrow",
+        "angry": "Angry",
+        "surprised": "Surprised",
+        "relaxed": null,
+        "neutral": "Neutral",
+        "blink": "Blink",
+        "blink_left": "Blink_L",
+        "blink_right": "Blink_R",
+        "custom": [
+            "Joy",
+            "Extra"
+        ]
+    }
+}

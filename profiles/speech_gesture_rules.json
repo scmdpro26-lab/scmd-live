@@ -1,0 +1,41 @@
+{
+  "comment": "Quy tắc phân tích từ khóa trong câu nói AI để kích hoạt cử chỉ diễn giải. Thứ tự quan trọng: rule đầu tiên khớp sẽ được ưu tiên.",
+  "rules": [
+    {
+      "keywords": ["cảm ơn", "cám ơn", "thanks", "thank you", "tuyệt vời", "tuyệt quá"],
+      "action": "clap"
+    },
+    {
+      "keywords": ["bên dưới", "phía dưới", "giỏ hàng", "đặt hàng ngay", "nhấn vào đây", "click vào"],
+      "action": "point_down"
+    },
+    {
+      "keywords": ["chú ý", "đặc biệt", "nổi bật", "ưu đãi", "khuyến mãi", "chỉ hôm nay"],
+      "action": "point_up"
+    },
+    {
+      "keywords": ["chào mừng", "xin chào", "welcome", "chào bạn", "chào các bạn"],
+      "action": "greeting"
+    },
+    {
+      "keywords": ["bên phải", "phía phải", "size", "kích thước", "màu sắc", "màu"],
+      "action": "present_right"
+    },
+    {
+      "keywords": ["bên trái", "phía trái", "mẫu", "kiểu dáng", "thiết kế", "hoa văn"],
+      "action": "present_left"
+    },
+    {
+      "keywords": ["ăn mừng", "chúc mừng", "xuất sắc", "hoàn hảo", "đỉnh của chóp"],
+      "action": "celebrate"
+    },
+    {
+      "keywords": ["voucher", "mã giảm giá", "coupon", "ưu đãi riêng", "code giảm", "mã code"],
+      "action": "voucher_show"
+    },
+    {
+      "keywords": ["nhanh lên", "sắp hết", "số lượng có hạn", "còn ít", "hết ngay", "mau lên"],
+      "action": "hurry_up"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+    "schema_version": 1,
+    "avatar_hash": "c4e22302bc8d0817025ae29d5e55eb73989f8adf8598ca5a2c12e4cba319773d",
+    "source_path": "D:\\SCMD_Tech\\13.autolive\\Vrm\\goicam.vrm",
+    "format": "VRM",
+    "version": "",
+    "height": 1.63,
+    "bones": 309,
+    "materials": 15,
+    "textures": 27,
+    "detected_at": "2026-08-09T11:47:51.252215",
+    "expressions": {
+        "available": [
+            "Neutral",
+            "A",
+            "I",
+            "U",
+            "E",
+            "O",
+            "Blink",
+            "Blink_L",
+            "Blink_R",
+            "Angry",
+            "Fun",
+            "Joy",
+            "Sorrow",
+            "Surprised",
+            "Extra"
+        ],
+        "viseme_a": "A",
+        "viseme_e": "E",
+        "viseme_i": "I",
+        "viseme_o": "O",
+        "viseme_u": "U",
+        "happy": "Fun",
+        "sad": "Sorrow",
+        "angry": "Angry",
+        "surprised": "Surprised",
+        "relaxed": null,
+        "neutral": "Neutral",
+        "blink": "Blink",
+        "blink_left": "Blink_L",
+        "blink_right": "Blink_R",
+        "custom": [
+            "Joy",
+            "Extra"
+        ]
+    }
+}

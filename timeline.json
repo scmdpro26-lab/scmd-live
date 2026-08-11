@@ -1,0 +1,44 @@
+[
+  {
+    "time_seconds": 10,
+    "action": "change_scene",
+    "params": {
+      "scene_name": "Intro_Scene"
+    },
+    "description": "Giới thiệu chương trình livestream và chào khán giả"
+  },
+  {
+    "time_seconds": 30,
+    "action": "change_scene",
+    "params": {
+      "scene_name": "Product_A_Scene"
+    },
+    "description": "Bắt đầu giới thiệu sản phẩm Áo Thun Cotton Basic (SP001)"
+  },
+  {
+    "time_seconds": 50,
+    "action": "show_source",
+    "params": {
+      "scene_name": "Product_A_Scene",
+      "source_name": "Product_A_Image"
+    },
+    "description": "Bật hiển thị hình ảnh chi tiết Áo Thun SP001"
+  },
+  {
+    "time_seconds": 80,
+    "action": "change_scene",
+    "params": {
+      "scene_name": "Product_B_Scene"
+    },
+    "description": "Chuyển sang giới thiệu sản phẩm Quần Jean Slimfit (SP002)"
+  },
+  {
+    "time_seconds": 100,
+    "action": "show_source",
+    "params": {
+      "scene_name": "Product_B_Scene",
+      "source_name": "Product_B_Image"
+    },
+    "description": "Bật hiển thị hình ảnh chi tiết Quần Jean SP002"
+  }
+]

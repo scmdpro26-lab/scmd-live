@@ -1,0 +1,302 @@
+{
+  "nodes_count": 108,
+  "skins_count": 3,
+  "humanoid": {
+    "humanBones": [
+      {
+        "bone": "hips",
+        "node": 3,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftUpperLeg",
+        "node": 83,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightUpperLeg",
+        "node": 94,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftLowerLeg",
+        "node": 90,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightLowerLeg",
+        "node": 101,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftFoot",
+        "node": 91,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightFoot",
+        "node": 102,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "spine",
+        "node": 4,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "chest",
+        "node": 5,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "neck",
+        "node": 11,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "head",
+        "node": 12,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftShoulder",
+        "node": 35,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightShoulder",
+        "node": 59,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftUpperArm",
+        "node": 36,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightUpperArm",
+        "node": 60,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftLowerArm",
+        "node": 37,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightLowerArm",
+        "node": 61,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftHand",
+        "node": 38,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightHand",
+        "node": 62,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftToes",
+        "node": 92,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightToes",
+        "node": 103,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftEye",
+        "node": 13,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightEye",
+        "node": 14,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftThumbProximal",
+        "node": 55,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftThumbIntermediate",
+        "node": 56,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftThumbDistal",
+        "node": 57,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftIndexProximal",
+        "node": 39,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftIndexIntermediate",
+        "node": 40,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftIndexDistal",
+        "node": 41,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftMiddleProximal",
+        "node": 47,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftMiddleIntermediate",
+        "node": 48,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftMiddleDistal",
+        "node": 49,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftRingProximal",
+        "node": 51,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftRingIntermediate",
+        "node": 52,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftRingDistal",
+        "node": 53,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftLittleProximal",
+        "node": 43,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftLittleIntermediate",
+        "node": 44,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "leftLittleDistal",
+        "node": 45,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightThumbProximal",
+        "node": 79,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightThumbIntermediate",
+        "node": 80,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightThumbDistal",
+        "node": 81,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightIndexProximal",
+        "node": 63,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightIndexIntermediate",
+        "node": 64,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightIndexDistal",
+        "node": 65,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightMiddleProximal",
+        "node": 71,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightMiddleIntermediate",
+        "node": 72,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightMiddleDistal",
+        "node": 73,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightRingProximal",
+        "node": 75,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightRingIntermediate",
+        "node": 76,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightRingDistal",
+        "node": 77,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightLittleProximal",
+        "node": 67,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightLittleIntermediate",
+        "node": 68,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "rightLittleDistal",
+        "node": 69,
+        "useDefaultValues": true
+      },
+      {
+        "bone": "upperChest",
+        "node": 6,
+        "useDefaultValues": true
+      }
+    ],
+    "armStretch": 0.05,
+    "legStretch": 0.05,
+    "upperArmTwist": 0.5,
+    "lowerArmTwist": 0.5,
+    "upperLegTwist": 0.5,
+    "lowerLegTwist": 0.5,
+    "feetSpacing": 0,
+    "hasTranslationDoF": false
+  },
+  "animations_count": 0,
+  "meta": {
+    "version": "",
+    "author": "",
+    "contactInformation": "",
+    "reference": "",
+    "title": "",
+    "texture": 26,
+    "allowedUserName": "Everyone",
+    "violentUssageName": "Disallow",
+    "sexualUssageName": "Disallow",
+    "commercialUssageName": "Disallow",
+    "otherPermissionUrl": "https://hub.vroid.com/license?allowed_to_use_user=everyone&characterization_allowed_user=everyone&corporate_commercial_use=disallow&credit=necessary&modification=disallow&personal_commercial_use=disallow&redistribution=disallow&sexual_expression=disallow&version=1&violent_expression=disallow",
+    "licenseName": "Other",
+    "otherLicenseUrl": "https://hub.vroid.com/license?allowed_to_use_user=everyone&characterization_allowed_user=everyone&corporate_commercial_use=disallow&credit=necessary&modification=disallow&personal_commercial_use=disallow&redistribution=disallow&sexual_expression=disallow&version=1&violent_expression=disallow"
+  }
+}
