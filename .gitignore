@@ -150,4 +150,3 @@ autolive.db-shm
 # Large local applications and backups
 /vnyan/
 /backups/
-/Vrm/
